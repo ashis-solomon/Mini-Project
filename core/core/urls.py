@@ -21,7 +21,7 @@ from .views import ApiOverviewAV
 urlpatterns = [
     path('', ApiOverviewAV.as_view()),
     path('admin/', admin.site.urls),
-    path('api/auth/', include('authentication.urls')),
-    path('api/', include('technicalquestions_api.urls')),
-    path('api/leetcode/', include('leetcode_api.urls')),
+    path('api/auth/', include('authentication.api.urls')),
+    path('api/', include('technicalquestions_api.api.urls')),
+    path('api/leetcode/', include('leetcode_api.api.urls')),
 ]

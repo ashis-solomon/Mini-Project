@@ -5,8 +5,6 @@ from rest_framework.views import APIView
 class ApiOverviewAV(APIView):
     def get(self, request, format=None):
         overview = [
-            " /api/auth/     - Authentication ",
-            " /api/          - TechnicalQuestions API ",
-            " /api/leetcode/ - Leetcode API ",
+            "Define later.",
         ]
         return Response(overview)
