@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+
+    'authentication.apps.AuthenticationConfig',
+    'technicalquestions_api.apps.TechnicalquestionsApiConfig',
+    'leetcode_api.apps.LeetcodeApiConfig',
 ]
 
 MIDDLEWARE = [
