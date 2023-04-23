@@ -8,7 +8,7 @@ class Results(models.Model):
     dbms = models.IntegerField()
     cn = models.IntegerField()
     os = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Results")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="results")
     created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
