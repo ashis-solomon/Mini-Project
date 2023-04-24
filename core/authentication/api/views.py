@@ -72,6 +72,4 @@ class UserView(APIView):
 
 
 class RefreshTokenView(TokenRefreshView):
-    pass      
-    
-    
+    pass
