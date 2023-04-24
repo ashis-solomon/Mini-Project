@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from technicalquestions_api.api.views import ResultsViewSet, QuizQuestionViewSet, GenerateTechnicalQuestionsView
-from .views import ResultTestListCreateView, ResultTestDetailView
+from .views import ResultTestListCreateView, ResultTestUserView, ResultTestUserDetailView
 
 
 router = routers.DefaultRouter()
@@ -14,5 +14,11 @@ urlpatterns = [
     # route changed from questions to question to avoid url match error
 
     path('prev-results/', ResultTestListCreateView.as_view(), name='result_test_list_create'),
-    path('prev-results/<int:pk>/', ResultTestDetailView.as_view(), name='result_test_detail'),
+    # for admin 
+
+    path('prev-results/user/', ResultTestUserView.as_view(), name='result_test_user_list'),
+    # for logged in user to view past results
+
+    path('prev-results/user/<int:pk>/', ResultTestUserDetailView.as_view(), name='result_test_user_detail'),
+    # for logged in user to view a specific past result
 ]

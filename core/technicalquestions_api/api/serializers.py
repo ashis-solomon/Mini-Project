@@ -29,11 +29,7 @@ class ResultScoreSerializer(serializers.ModelSerializer):
 class ResultVisualizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ResultVisualization
-        fields = ['CO1_correct', 'CO2_correct', 'CO3_correct', 'CO4_correct',
-                  'CO1_total', 'CO2_total', 'CO3_total', 'CO4_total',
-                  'easy_correct', 'medium_correct', 'hard_correct',
-                  'easy_total', 'medium_total', 'hard_total',
-                  'sub1_correct', 'sub2_correct', 'sub3_correct', 'sub4_correct']
+        fields="__all__"
 
 
 class ResultTestSerializer(serializers.ModelSerializer):

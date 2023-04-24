@@ -61,8 +61,9 @@ class ResultTestListCreateView(generics.ListCreateAPIView):
     serializer_class = ResultTestSerializer
 
     def get_queryset(self):
-        print(self.request.user)
-        return ResultTest.objects.filter(user=self.request.user)
+        # print(self.request.user)
+        # return ResultTest.objects.filter(user=self.request.user)
+        return ResultTest.objects.all()
 
     def post(self, request, *args, **kwargs):
         serializer = ResultTestCreateSerializer(data=request.data)
@@ -71,10 +72,19 @@ class ResultTestListCreateView(generics.ListCreateAPIView):
             serializer = ResultTestSerializer(test)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
+class ResultTestUserView(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ResultTestSerializer
 
-class ResultTestDetailView(generics.RetrieveAPIView):
-    permission_classes = [IsAuthenticated,IsAdminUser]
+    def get_queryset(self):
+        print(self.request.user)
+        return ResultTest.objects.filter(user=self.request.user)
+    
+
+class ResultTestUserDetailView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = ResultTestSerializer
 
     def get_object(self):
