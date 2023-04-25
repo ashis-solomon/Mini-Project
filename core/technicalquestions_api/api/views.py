@@ -5,19 +5,19 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 
-from technicalquestions_api.models import Results,QuizQuestion
-from technicalquestions_api.api.serializers import ResultsSerializer,QuizQuestionSerializer
+from technicalquestions_api.models import QuizQuestion
+from technicalquestions_api.api.serializers import QuizQuestionSerializer
 
 from random import sample
 from collections import defaultdict
 
 from ..models import ResultTest
-from .serializers import ResultTestSerializer, ResultTestCreateSerializer
+from .serializers import ResultTestSerializer
 
-class ResultsViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated,IsAdminUser]
-    serializer_class = ResultsSerializer
-    queryset = Results.objects.all()
+# class ResultsViewSet(ModelViewSet):
+#     permission_classes = [IsAuthenticated,IsAdminUser]
+#     serializer_class = ResultsSerializer
+#     queryset = Results.objects.all()
 
 class QuizQuestionViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated,IsAdminUser]
@@ -66,9 +66,9 @@ class ResultTestListCreateView(generics.ListCreateAPIView):
         return ResultTest.objects.all()
 
     def post(self, request, *args, **kwargs):
-        serializer = ResultTestCreateSerializer(data=request.data)
+        serializer = ResultTestSerializer(data=request.data)
         if serializer.is_valid():
-            test = serializer.save(user=request.user)
+            test = serializer.save()
             serializer = ResultTestSerializer(test)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
