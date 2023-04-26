@@ -1,11 +1,14 @@
 from rest_framework import generics
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+
 from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill
 from jobscrape_api.api.serializers import JobLanguageSerializer, JobFrameworkSerializer, JobDatabaseSerializer, JobSkillSerializer
 
 
 class JobLanguageList(generics.ListAPIView):
     serializer_class = JobLanguageSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
 
     def get_queryset(self):
         query = self.request.query_params.get('q')
@@ -22,6 +25,7 @@ class JobLanguageList(generics.ListAPIView):
 
 class JobFrameworkList(generics.ListAPIView):
     serializer_class = JobFrameworkSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
 
     def get_queryset(self):
         query = self.request.query_params.get('q')
@@ -38,6 +42,7 @@ class JobFrameworkList(generics.ListAPIView):
 
 class JobDatabaseList(generics.ListAPIView):
     serializer_class = JobDatabaseSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
 
     def get_queryset(self):
         query = self.request.query_params.get('q')
@@ -53,6 +58,7 @@ class JobDatabaseList(generics.ListAPIView):
 
 class JobSkillList(generics.ListAPIView):
     serializer_class = JobSkillSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
 
     def get_queryset(self):
         query = self.request.query_params.get('q')
