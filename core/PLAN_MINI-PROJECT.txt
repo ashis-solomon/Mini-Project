@@ -32,3 +32,17 @@ fix /register
 remove rollno from user model
 
 add more data to the csv's
+
+
+#TODO
+The reason why you are not getting any result for http://127.0.0.1:8000/api/jobs/languages/?q=c+ is 
+because the plus sign (+) is a reserved character in URLs and is used to represent a space. 
+When you send c+ as a query parameter, Django sees it as c (with a space) instead of c+.
+
+To fix this, you can encode the + sign in your URL as %2B, 
+like this: http://127.0.0.1:8000/api/jobs/languages/?q=c%2B. This will make sure that Django
+ receives c+ as the query parameter and you should get the expected results.
+ 
+ 
+ 
+

@@ -1,17 +1,17 @@
 import csv
 from django.core.management.base import BaseCommand
-from jobscrape_api.models import JobLanguages, JobFrameworks, JobDatabases, JobSkills
+from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill
 
 class Command(BaseCommand):
     help = 'Loads job skills data from CSV file into database'
 
     def handle(self, *args, **kwargs):
-        if JobLanguages.objects.count() == 0:
+        if JobLanguage.objects.count() == 0:
             with open('./media/csv/languages.csv') as csvfile:
                 reader = csv.DictReader(csvfile)
 
                 for row in reader:
-                    language = JobLanguages(
+                    language = JobLanguage(
                         language=row['languages']
                     )
 
@@ -23,12 +23,12 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING('JobLanguages already exists, skipping data load'))
 
 
-        if JobFrameworks.objects.count() == 0:
+        if JobFramework.objects.count() == 0:
             with open('./media/csv/frameworks.csv') as csvfile:
                 reader = csv.DictReader(csvfile)
 
                 for row in reader:
-                    framework = JobFrameworks(
+                    framework = JobFramework(
                         framework=row['frameworks']
                     )
 
@@ -39,12 +39,12 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING('JobFrameworks already exists, skipping data load'))
 
         
-        if JobDatabases.objects.count() == 0:
+        if JobDatabase.objects.count() == 0:
             with open('./media/csv/databases.csv') as csvfile:
                 reader = csv.DictReader(csvfile)
 
                 for row in reader:
-                    database = JobDatabases(
+                    database = JobDatabase(
                         database=row['databases']
                     )
 
@@ -55,12 +55,12 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING('JobDatabases already exists, skipping data load'))
 
         
-        if JobSkills.objects.count() == 0:
+        if JobSkill.objects.count() == 0:
             with open('./media/csv/skills.csv') as csvfile:
                 reader = csv.DictReader(csvfile)
 
                 for row in reader:
-                    skill = JobSkills(
+                    skill = JobSkill(
                         skill=row['skills']
                     )
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
-from jobscrape_api.models import JobLanguages, JobFrameworks, JobDatabases, JobSkills
+from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill
 
-admin.site.register(JobLanguages)
-admin.site.register(JobFrameworks)
-admin.site.register(JobDatabases)
-admin.site.register(JobSkills)
+admin.site.register(JobLanguage)
+admin.site.register(JobFramework)
+admin.site.register(JobDatabase)
+admin.site.register(JobSkill)
