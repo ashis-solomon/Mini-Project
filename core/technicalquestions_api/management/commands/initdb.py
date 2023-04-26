@@ -8,5 +8,6 @@ class Command(BaseCommand):
         call_command('makemigrations')
         call_command('migrate')
         call_command('initquizquestions')
+        call_command('initskills')
 
         self.stdout.write(self.style.SUCCESS('All management commands completed.'))

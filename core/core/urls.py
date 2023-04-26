@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.api.urls')),
     path('api/technical/', include('technicalquestions_api.api.urls')),
-    path('api/leetcode/', include('leetcode_api.api.urls')),
+    path('api/jobs/', include('jobscrape_api.api.urls')),
 ]

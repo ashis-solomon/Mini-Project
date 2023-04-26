@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     results = ResultTestSerializer(many=True, read_only=True)
     class Meta:
         model = User
-        fields = ['username','rollno' ,'email', 'password','results']
+        fields = ['username', 'email', 'password', 'languages', 'frameworks', 'databases', 'skills', 'results']
         extra_kwargs = {
             'password': {'write_only': True}
         }

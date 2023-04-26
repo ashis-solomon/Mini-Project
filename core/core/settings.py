@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'authentication.apps.AuthenticationConfig',
     'technicalquestions_api.apps.TechnicalquestionsApiConfig',
-    'leetcode_api.apps.LeetcodeApiConfig',
+    'jobscrape_api.apps.JobscrapeApiConfig',
 ]
 
 MIDDLEWARE = [
