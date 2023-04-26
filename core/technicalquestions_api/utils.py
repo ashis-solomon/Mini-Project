@@ -1,7 +1,7 @@
 # VERIFY-PATH
-# import os
-# path = os.getcwd()
-# print(path)
+import os
+path = os.getcwd()
+print(path)
 
 # IMPORT TECHNICAL_DATASET CSV
 import csv

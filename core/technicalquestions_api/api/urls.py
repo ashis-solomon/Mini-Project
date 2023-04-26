@@ -5,8 +5,8 @@ from .views import ResultTestListCreateView, ResultTestUserView, ResultTestUserD
 
 
 router = routers.DefaultRouter()
-#router.register(r'results', ResultsViewSet)
 router.register(r'questions', QuizQuestionViewSet)
+# route to view the QuizQuestions
 
 urlpatterns = [
     path('', include(router.urls)),
@@ -15,6 +15,7 @@ urlpatterns = [
 
     path('question/similar/', SimilarQuestionsView.as_view(), name='generate-similar-questions'),
     path('question/provide/', ProvideQuestionsView.as_view(), name='generate-provide-questions'),
+    # both these routes take in {"ids": [...]}
 
     path('prev-results/', ResultTestListCreateView.as_view(), name='result_test_list_create'),
     # for admin 

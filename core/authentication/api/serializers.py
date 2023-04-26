@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from authentication.models import User
-#from technicalquestions_api.models import Results
 from technicalquestions_api.api.serializers import ResultTestSerializer
 
   

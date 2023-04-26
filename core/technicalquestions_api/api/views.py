@@ -19,10 +19,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 
 
-# class ResultsViewSet(ModelViewSet):
-#     permission_classes = [IsAuthenticated,IsAdminUser]
-#     serializer_class = ResultsSerializer
-#     queryset = Results.objects.all()
 
 class QuizQuestionViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated,IsAdminUser]
@@ -60,6 +56,7 @@ class GenerateTechnicalQuestionsView(APIView):
         # Return the questions data in a JSON response
         return Response(data)
     
+
 class SimilarQuestionsView(APIView):
     permission_classes = [IsAuthenticated,IsAdminUser]
 
@@ -155,6 +152,7 @@ class SimilarQuestionsView(APIView):
         }
         return Response(data, status=status.HTTP_200_OK)
     
+
 class ProvideQuestionsView(APIView):
     permission_classes = [IsAuthenticated,IsAdminUser]
 
@@ -187,14 +185,12 @@ class ProvideQuestionsView(APIView):
         return JsonResponse({'questions': data})    
         
         
-
 class ResultTestListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated,IsAdminUser]
     serializer_class = ResultTestSerializer
 
     def get_queryset(self):
         # print(self.request.user)
-        # return ResultTest.objects.filter(user=self.request.user)
         return ResultTest.objects.all()
 
     def post(self, request, *args, **kwargs):

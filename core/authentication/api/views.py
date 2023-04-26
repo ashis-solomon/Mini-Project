@@ -4,8 +4,9 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.shortcuts import get_object_or_404
 from rest_framework_simplejwt.views import TokenRefreshView
+from django.shortcuts import get_object_or_404
+
 
 from authentication.models import User
 from authentication.api.serializers import UserSerializer
