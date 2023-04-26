@@ -1,10 +1,10 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenRefreshView
+from rest_framework import viewsets, mixins
 from django.shortcuts import get_object_or_404
 
 
@@ -12,7 +12,7 @@ from authentication.models import User
 from authentication.api.serializers import UserSerializer
 
 
-class ProfileViewSet(ModelViewSet):
+class ProfileViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     permission_classes = [IsAuthenticated,IsAdminUser]
     queryset = User.objects.all()
     serializer_class = UserSerializer

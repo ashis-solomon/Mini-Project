@@ -1,8 +1,8 @@
 # Register
 
-Used to collect a Token for a registered User.
+Used to register a new User without admin status.
 
-**URL** : `/api/login/`
+**URL** : `/api/auth/register/`
 
 **Method** : `POST`
 
@@ -12,8 +12,13 @@ Used to collect a Token for a registered User.
 
 ```json
 {
-    "username": "[valid email address]",
-    "password": "[password in plain text]"
+    "username": "[valid username]",
+    "password": "[password in plain text]",
+    "email": "[valid email address]",
+    "languages": "[comma separated list]",
+    "frameworks": "[comma separated list]",
+    "databases": "[comma separated list]",
+    "skills": "[comma separated list]"
 }
 ```
 
@@ -21,8 +26,13 @@ Used to collect a Token for a registered User.
 
 ```json
 {
-    "username": "iloveauth@example.com",
-    "password": "abcd1234"
+    "username": "user1",
+    "password": "user1",
+    "email": "user1@email.com",
+    "languages": "c++, python, javascript",
+    "frameworks": "angular",
+    "databases": "sqlite",
+    "skills": "redis"
 }
 ```
 
@@ -34,22 +44,12 @@ Used to collect a Token for a registered User.
 
 ```json
 {
-    "token": "93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
-}
-```
-
-## Error Response
-
-**Condition** : If 'username' and 'password' combination is wrong.
-
-**Code** : `400 BAD REQUEST`
-
-**Content** :
-
-```json
-{
-    "non_field_errors": [
-        "Unable to login with provided credentials."
-    ]
+    "username": "user1",
+    "email": "user1@email.com",
+    "languages": "c++, python, javascript",
+    "frameworks": "angular",
+    "databases": "sqlite",
+    "skills": "redis",
+    "results": []
 }
 ```

@@ -1,15 +1,16 @@
-# API Documentation
+# API Reference
 
-`server`: 'http://localhost:8000/'
+`server`: http://localhost:8000/
 
 ## Open Endpoints
 
 Open endpoints require no Authentication.
 
-* [Login](docs/auth/login.md) : `POST /api/auth/login/`
 * [Register](docs/auth/register.md) : `POST /api/auth/register/`
+* [Login](docs/auth/login.md) : `POST /api/auth/login/`
 
-## Endpoints that require Authentication
+
+<!-- ## Endpoints that require Authentication
 
 Closed endpoints require a valid Bearer Token to be included in the header of the request. 
 A Token can be acquired from the Login view above.
@@ -31,4 +32,4 @@ has permissions to access.
 * [Create Account](accounts/post.md) : `POST /api/accounts/`
 * [Show An Account](accounts/pk/get.md) : `GET /api/accounts/:pk/`
 * [Update An Account](accounts/pk/put.md) : `PUT /api/accounts/:pk/`
-* [Delete An Account](accounts/pk/delete.md) : `DELETE /api/accounts/:pk/`
+* [Delete An Account](accounts/pk/delete.md) : `DELETE /api/accounts/:pk/` -->
