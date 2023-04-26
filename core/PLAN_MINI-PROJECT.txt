@@ -44,5 +44,13 @@ like this: http://127.0.0.1:8000/api/jobs/languages/?q=c%2B. This will make sure
  receives c+ as the query parameter and you should get the expected results.
  
  
- 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+change to MEDIA_ROOT
+
+? createsuperuser admin to management/commands [only for convenience]
+
+
 
