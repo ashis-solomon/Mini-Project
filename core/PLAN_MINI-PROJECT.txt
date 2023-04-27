@@ -56,3 +56,6 @@ change to MEDIA_ROOT
 Model Viewset /api/auth/profiles - Delete Maybe?
 
 Model Viewset - https://stackoverflow.com/questions/23639113/disable-a-method-in-a-viewset-django-rest-framework
+
+DEBUG = FALSE
+
