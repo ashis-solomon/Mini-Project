@@ -94,7 +94,7 @@ class ScrapeJobsList(generics.ListAPIView):
         return Response(data)
 
 
-# add more methods?
+# add more methods - nothing for now
 class ScrapeResultListView(generics.ListAPIView):
     permission_classes = [IsAuthenticated,IsAdminUser]
     serializer_class = ScrapeResultSerializer
@@ -107,6 +107,8 @@ class ScrapeResultRetrieveView(generics.RetrieveAPIView):
     permission_classes = [IsAuthenticated,IsAdminUser]
     serializer_class = ScrapeResultSerializer
 
+    # IMPLEMENT COSINE
+    
     def get_object(self):
         job_name = self.kwargs.get('job_name')
         obj = get_object_or_404(ScrapeResult, job_name__job_name=job_name)  

@@ -2,6 +2,7 @@
 
 /api/technical/instructions
 
+COSINE handling
 ------------------------------------
 ------------------------------------
 ------------------------------------
@@ -29,28 +30,40 @@ change to MEDIA_ROOT
 
 DEBUG = FALSE
 
+TIMEZONE
+
+LOGGER
+
 ? createsuperuser admin to management/commands [only for convenience]
 
 check all csvs
 
 similar-questions check
-question provide endpoint check
+question provide endpoint check ???
 
 API Documentation
 
 add more data to the csv's and change it -> languages, frameworks, ....
 
+
+frontend visualization result is not fixed yet
+define the visualizations
+draw the basic structure
 ------------------------------------
 ------------------------------------
 ------------------------------------
+00 00,12 * * *
+
+regex rectify and add
+
+jobs csv -> add relevant jobs and refactor [scrapejobslist.csv]
+
+languages + frameworks, .... skills db frame atleast len(of all) == 1 check
+
+check all csvs
 
 
-scrape endpoints
-skill
-location
-last_scraped
-JSONField
+CRON
 
-
-languages, frameworks, .... skills db frame atleast len(of all) == 1 check
+intializing db after scrape
 
