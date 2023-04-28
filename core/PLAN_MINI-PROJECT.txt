@@ -49,6 +49,8 @@ add more data to the csv's and change it -> languages, frameworks, ....
 frontend visualization result is not fixed yet
 define the visualizations
 draw the basic structure
+
+give varun's code
 ------------------------------------
 ------------------------------------
 ------------------------------------
@@ -61,6 +63,8 @@ jobs csv -> add relevant jobs and refactor [scrapejobslist.csv]
 languages + frameworks, .... skills db frame atleast len(of all) == 1 check
 
 check all csvs
+
+Single Code Block - Scraping Code
 
 
 CRON
