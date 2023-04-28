@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill
+from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill, ScrapeJob
 
 class JobLanguageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +20,8 @@ class JobSkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobSkill
         fields = ['skill']
+
+class ScrapeJobsListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ScrapeJob
+        fields = ['job_name']

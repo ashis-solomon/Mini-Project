@@ -1,38 +1,14 @@
-/refresh - permission_classes check
+/refresh - permission_classes not done
 
 /api/technical/instructions
 
 ------------------------------------
 ------------------------------------
 ------------------------------------
-
 Frontend Work:
 
 Data Validation
 Profile-Picture Handling
-
-------------------------------------
-------------------------------------
-------------------------------------
-
-similar-questions check
-question provide endpoint check
-
-API Documentation
-
-search endpoint - filter - db search
-
-scrape endpoints
-skill
-location
-last_scraped
-JSONField
-
-fix /register
-remove rollno from user model
-
-add more data to the csv's
-
 
 #TODO
 The reason why you are not getting any result for http://127.0.0.1:8000/api/jobs/languages/?q=c+ is 
@@ -41,21 +17,40 @@ When you send c+ as a query parameter, Django sees it as c (with a space) instea
 
 To fix this, you can encode the + sign in your URL as %2B, 
 like this: http://127.0.0.1:8000/api/jobs/languages/?q=c%2B. This will make sure that Django
- receives c+ as the query parameter and you should get the expected results.
- 
- 
+receives c+ as the query parameter and you should get the expected results.
+------------------------------------
+------------------------------------
+------------------------------------
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 change to MEDIA_ROOT
 
+DEBUG = FALSE
+
 ? createsuperuser admin to management/commands [only for convenience]
 
+check all csvs
 
-Model Viewset /api/auth/profiles - Delete Maybe?
+similar-questions check
+question provide endpoint check
 
-Model Viewset - https://stackoverflow.com/questions/23639113/disable-a-method-in-a-viewset-django-rest-framework
+API Documentation
 
-DEBUG = FALSE
+add more data to the csv's and change it -> languages, frameworks, ....
+
+------------------------------------
+------------------------------------
+------------------------------------
+
+
+scrape endpoints
+skill
+location
+last_scraped
+JSONField
+
+
+languages, frameworks, .... skills db frame atleast len(of all) == 1 check
 

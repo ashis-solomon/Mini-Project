@@ -2,8 +2,8 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
-from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill
-from jobscrape_api.api.serializers import JobLanguageSerializer, JobFrameworkSerializer, JobDatabaseSerializer, JobSkillSerializer
+from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill, ScrapeJob
+from jobscrape_api.api.serializers import JobLanguageSerializer, JobFrameworkSerializer, JobDatabaseSerializer, JobSkillSerializer, ScrapeJobsListSerializer
 
 
 class JobLanguageList(generics.ListAPIView):
@@ -71,3 +71,20 @@ class JobSkillList(generics.ListAPIView):
         serializer = self.get_serializer(queryset, many=True)
         data = [skill['skill'] for skill in serializer.data]
         return Response(data)
+    
+class ScrapeJobsList(generics.ListAPIView):
+    serializer_class = ScrapeJobsListSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
+
+    def get_queryset(self):
+        query = self.request.query_params.get('q')
+        if query:
+            return ScrapeJob.objects.filter(job_name__icontains=query)
+        return ScrapeJob.objects.all()
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        data = [job_name['job_name'] for job_name in serializer.data]
+        return Response(data)
+
