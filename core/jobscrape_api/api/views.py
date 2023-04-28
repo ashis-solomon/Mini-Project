@@ -1,9 +1,11 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from django.shortcuts import get_object_or_404
 
-from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill, ScrapeJob
-from jobscrape_api.api.serializers import JobLanguageSerializer, JobFrameworkSerializer, JobDatabaseSerializer, JobSkillSerializer, ScrapeJobsListSerializer
+
+from jobscrape_api.models import JobLanguage, JobFramework, JobDatabase, JobSkill, ScrapeJob, ScrapeResult
+from jobscrape_api.api.serializers import JobLanguageSerializer, JobFrameworkSerializer, JobDatabaseSerializer, JobSkillSerializer, ScrapeJobsListSerializer, ScrapeResultSerializer
 
 
 class JobLanguageList(generics.ListAPIView):
@@ -56,6 +58,7 @@ class JobDatabaseList(generics.ListAPIView):
         data = [database['database'] for database in serializer.data]
         return Response(data)
 
+
 class JobSkillList(generics.ListAPIView):
     serializer_class = JobSkillSerializer
     permission_classes = [IsAuthenticated,IsAdminUser]
@@ -72,6 +75,8 @@ class JobSkillList(generics.ListAPIView):
         data = [skill['skill'] for skill in serializer.data]
         return Response(data)
     
+
+
 class ScrapeJobsList(generics.ListAPIView):
     serializer_class = ScrapeJobsListSerializer
     permission_classes = [IsAuthenticated,IsAdminUser]
@@ -88,3 +93,21 @@ class ScrapeJobsList(generics.ListAPIView):
         data = [job_name['job_name'] for job_name in serializer.data]
         return Response(data)
 
+
+# add more methods?
+class ScrapeResultListView(generics.ListAPIView):
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    serializer_class = ScrapeResultSerializer
+
+    def get_queryset(self):
+        return ScrapeResult.objects.all()
+
+
+class ScrapeResultRetrieveView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    serializer_class = ScrapeResultSerializer
+
+    def get_object(self):
+        job_name = self.kwargs.get('job_name')
+        obj = get_object_or_404(ScrapeResult, job_name__job_name=job_name)  
+        return obj

@@ -10,5 +10,6 @@ class Command(BaseCommand):
         call_command('initquizquestions')
         call_command('initskills')
         call_command('initscrapejobs')
+        call_command('temp_init_thejsonresp')
 
         self.stdout.write(self.style.SUCCESS('All management commands completed.'))

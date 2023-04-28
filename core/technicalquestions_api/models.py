@@ -23,8 +23,7 @@ class QuizQuestion(models.Model):
 class ResultTest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="results")
     test_date = models.DateTimeField(auto_now_add=True)
-    results=models.JSONField()
+    results = models.JSONField()
 
     def __str__(self):
-        return f'{self.user}  \
-                {self.test_date}'
+        return f'{self.user} {self.test_date}'
