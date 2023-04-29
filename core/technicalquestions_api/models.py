@@ -4,7 +4,7 @@ from authentication.models import User
 
 
 class QuizQuestion(models.Model):
-    question_id = models.IntegerField(primary_key=True, auto_created=True)
+    question_id = models.AutoField(primary_key=True)
     topic = models.CharField(max_length=5000)
     question = models.TextField(max_length=5000)
     option_a = models.CharField(max_length=5000)
