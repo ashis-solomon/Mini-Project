@@ -71,3 +71,7 @@ CRON
 
 intializing db after scrape
 
+djano-admin version
+v4.2 may cause admin panel issues
+v4.12 is stable ig 
+so move to it
