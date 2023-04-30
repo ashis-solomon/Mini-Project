@@ -75,3 +75,15 @@ djano-admin version
 v4.2 may cause admin panel issues
 v4.12 is stable ig 
 so move to it
+
+
+import json
+
+def remove_na_companylinks(json_data):
+    for key in json_data:
+        for job in json_data[key]:
+            if job['company_links'] == '#N/A':
+                json_data[key].remove(job)
+    return json_data
+    
+    
